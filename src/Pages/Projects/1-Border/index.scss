@@ -1,0 +1,69 @@
+.Border1 {
+    @property --a {
+        syntax: "<angle>";
+        inherits: false;
+        initial-value: 0deg;
+    }
+
+    form {
+        position: relative;
+        overflow: hidden;
+
+        .layer1 {
+            .layer1 {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%) rotate(0);
+                border-color: blue transparent blue transparent;
+                border-width: 600px;
+                animation: turn 6s linear infinite;
+            }
+
+            &::before {
+                content: "";
+                position: absolute;
+
+                inset: 2px;
+                background-color: white;
+                z-index: 1;
+            }
+            &::after {
+                content: "";
+                position: absolute;
+                width: 50%;
+                height: 100%;
+                left: 50%;
+                transform: translateX(-50%);
+                background-color: white;
+                z-index: 1;
+            }
+            .layer2 {
+                position: absolute;
+                width: 100%;
+                height: 50%;
+                top: 50%;
+                transform: translateY(-50%);
+                background-color: white;
+                z-index: 1;
+            }
+            .layer3 {
+                position: absolute;
+                width: 300%;
+                height: 23%;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%) rotate(0);
+                background-color: blue;
+                z-index: 0;
+                animation: turn 6s linear infinite;
+            }
+        }
+    }
+}
+
+@keyframes turn {
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
