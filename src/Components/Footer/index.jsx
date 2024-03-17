@@ -1,6 +1,7 @@
 import { useCallback, useEffect } from "react";
 import { useGlobalContext } from "../../GlobalApp";
 import { Link } from "react-router-dom";
+import "./index.scss";
 
 function index() {
     const { Footer, setFooterHeight } = useGlobalContext();
@@ -17,7 +18,12 @@ function index() {
     }, []);
 
     return (
-        <footer className="py-1 px-2 border-t-2 border-gray-300" ref={Footer}>
+        <footer
+            className="py-1 px-2 border-t-2 border-gray-300 
+            flex flex-col flex-wrap max-h-24"
+            ref={Footer}
+        >
+            <Link to={"/"}>Home</Link>
             <Link to={"/border1"}>Border1</Link>
         </footer>
     );

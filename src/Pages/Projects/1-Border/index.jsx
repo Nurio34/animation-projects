@@ -4,6 +4,7 @@ import "./index.scss";
 
 function index() {
     //! RESET THE HEADER
+
     const { setLogo, setLogoUrl, isTutorial } = useGlobalContext();
 
     const setHeaderLogo = () => {
@@ -14,6 +15,7 @@ function index() {
     useEffect(() => {
         setHeaderLogo();
     });
+
     //! ------------------
 
     return (
@@ -33,12 +35,52 @@ function index() {
                 </div>
             ) : (
                 //! -----------------
-                <div className="h-full grid place-content-center ">
-                    <form className=" w-[300px] h-[500px]  place-self-center">
-                        <div className="layer1">
-                            <div className="layer1"></div>
-                            <div className="layer2"></div>
-                            <div className="layer3"></div>
+                <div className=" h-full container ">
+                    <form>
+                        <div className="layer1"></div>
+                        <div className="layer2"></div>
+                        <div className="form">
+                            <h1 className=" uppercase text-2xl font-bold text-center">
+                                login
+                            </h1>
+                            <label
+                                htmlFor="nameInp"
+                                className="relative overflow-hidden "
+                            >
+                                <div className="layer3"></div>
+                                <input
+                                    type="text"
+                                    name="name"
+                                    id="nameInp"
+                                    placeholder=" Name..."
+                                    className=" capitalize"
+                                />
+                            </label>
+                            <label
+                                htmlFor="passInp"
+                                className=" relative overflow-hidden"
+                            >
+                                <div className="layer4"></div>
+                                <input
+                                    type="password"
+                                    name="pass"
+                                    id="passInp"
+                                    placeholder=" Password..."
+                                />
+                            </label>
+                            <input
+                                type="submit"
+                                value="sign in"
+                                className="  py-1 px-2 capitalize bg-white text-black cursor-pointer outline-none"
+                            />
+                            <div className="flex justify-between uppercase text-xs">
+                                <a href="#" className="">
+                                    Forget Password
+                                </a>
+                                <a href="#" className="signup">
+                                    signup
+                                </a>
+                            </div>
                         </div>
                     </form>
                 </div>

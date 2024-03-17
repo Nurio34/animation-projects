@@ -6,7 +6,7 @@ import {
     useRef,
     useState,
 } from "react";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, useLocation } from "react-router-dom";
 
 const GlobalContext = createContext();
 export const useGlobalContext = () => useContext(GlobalContext);
@@ -18,7 +18,7 @@ function GlobalApp({ children }) {
     const Footer = useRef();
     const [footerHeight, setFooterHeight] = useState(0);
     const [logo, setLogo] = useState("");
-    const [logoUrl, setLogoUrl] = useState("");
+    const [logoUrl, setLogoUrl] = useState("https://github.com/nurio34");
     const [isTutorial, setIsTutorial] = useState(false);
 
     //! PREVENT ARROW KEYS AND SPACE TO SCROLL PAGE
@@ -37,8 +37,7 @@ function GlobalApp({ children }) {
         return () =>
             window.removeEventListener("keydown", preventDefaultBehaviours);
     }, []);
-    //! ------------------------------------------------
-
+    // //! ------------------------------------------------
     return (
         <BrowserRouter>
             <GlobalContext.Provider

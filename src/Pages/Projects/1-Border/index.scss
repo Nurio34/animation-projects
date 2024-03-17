@@ -1,69 +1,160 @@
 .Border1 {
-    @property --a {
-        syntax: "<angle>";
-        inherits: false;
-        initial-value: 0deg;
-    }
+    --blue: rgb(72, 197, 246);
+    background-color: black;
 
-    form {
-        position: relative;
-        overflow: hidden;
+    .container {
+        display: grid;
+        grid-template-columns: 0.1fr 0.9fr 0.1fr;
+        grid-template-rows: repeat(3, 1fr);
+        align-items: center;
 
-        .layer1 {
-            .layer1 {
+        @media (min-width: 600px) {
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(4, 1fr);
+        }
+
+        form {
+            position: relative;
+            overflow: hidden;
+            grid-column: 2/3;
+            grid-row: 2/3;
+            aspect-ratio: 1;
+            isolation: isolate;
+
+            @media (min-width: 600px) {
+                grid-column: 2/4;
+                grid-row: 2/4;
+            }
+
+            .form {
+                display: grid;
+                grid-template-rows: repeat(5, 1fr);
+                padding: 10vw;
+                gap: 1rem;
+                background-color: black;
+                color: white;
                 position: absolute;
                 top: 50%;
                 left: 50%;
-                transform: translate(-50%, -50%) rotate(0);
-                border-color: blue transparent blue transparent;
-                border-width: 600px;
-                animation: turn 6s linear infinite;
-            }
+                transform: translate(-50%, -50%);
+                width: 99%;
+                height: 99%;
+                z-index: 3;
 
-            &::before {
-                content: "";
-                position: absolute;
+                [type="text"],
+                [type="password"] {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    width: 98%;
+                    height: 90%;
+                    color: white;
+                    padding-inline: 1rem;
+                    background-color: black;
+                    outline: none;
+                }
 
-                inset: 2px;
-                background-color: white;
-                z-index: 1;
-            }
-            &::after {
-                content: "";
-                position: absolute;
-                width: 50%;
-                height: 100%;
-                left: 50%;
-                transform: translateX(-50%);
-                background-color: white;
-                z-index: 1;
-            }
-            .layer2 {
-                position: absolute;
-                width: 100%;
-                height: 50%;
-                top: 50%;
-                transform: translateY(-50%);
-                background-color: white;
-                z-index: 1;
-            }
-            .layer3 {
-                position: absolute;
-                width: 300%;
-                height: 23%;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%) rotate(0);
-                background-color: blue;
-                z-index: 0;
-                animation: turn 6s linear infinite;
+                [type="submit"] {
+                    background-color: var(--blue);
+                    animation: dropsh 1s ease-in-out infinite alternate;
+                    filter: drop-shadow(0 0 1px var(--blue))
+                        drop-shadow(0 0 2px var(--blue));
+                }
+
+                .signup {
+                    color: var(--blue);
+                    filter: drop-shadow(0 0 1px var(--blue));
+                }
             }
         }
+    }
+
+    .layer1 {
+        --to: 360deg;
+        --delay: 0s;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 99%;
+        height: 99%;
+        animation: turn 10s linear infinite;
+
+        &::before {
+            content: "";
+            width: 33%;
+            height: 1000%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: var(--blue);
+            filter: drop-shadow(0 0 10px var(--blue));
+        }
+
+        &::after {
+            content: "";
+            width: 33%;
+            height: 1000%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(90deg);
+            background-color: var(--blue);
+            filter: drop-shadow(0 0 10px var(--blue));
+        }
+    }
+
+    .layer2 {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 99%;
+        height: 99%;
+        background-color: white;
+    }
+
+    .layer3,
+    .layer4 {
+        --to: 360deg;
+        --delay: 0s;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 99%;
+        height: 99%;
+        animation: turn 5s var(--delay) linear infinite;
+
+        &::before {
+            content: "";
+            width: 10%;
+            height: 1000%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: var(--blue);
+        }
+    }
+
+    .layer4 {
+        --to: -360deg;
+        --delay: -1.25s;
     }
 }
 
 @keyframes turn {
     to {
-        transform: translate(-50%, -50%) rotate(360deg);
+        transform: translate(-50%, -50%) rotate(var(--to));
+    }
+}
+
+@keyframes dropsh {
+    to {
+        filter: drop-shadow(0 0 8px var(--blue))
+            drop-shadow(0 0 15px var(--blue));
     }
 }

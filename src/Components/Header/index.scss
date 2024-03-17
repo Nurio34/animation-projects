@@ -1,0 +1,14 @@
+header {
+    .cursorAnimation {
+        background-color: black;
+        width: 2px;
+        height: 50%;
+        animation: fade 0.5s ease-in-out infinite alternate;
+    }
+}
+
+@keyframes fade {
+    to {
+        opacity: 0;
+    }
+}
