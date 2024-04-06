@@ -14,11 +14,15 @@ export const useGlobalContext = () => useContext(GlobalContext);
 function GlobalApp({ children }) {
     const Header = useRef();
     const [headerHeight, setHeaderHeight] = useState(0);
+
     const Main = useRef();
+
     const Footer = useRef();
     const [footerHeight, setFooterHeight] = useState(0);
+
     const [logo, setLogo] = useState("");
     const [logoUrl, setLogoUrl] = useState("https://github.com/nurio34");
+
     const [isTutorial, setIsTutorial] = useState(false);
 
     //! PREVENT ARROW KEYS AND SPACE TO SCROLL PAGE

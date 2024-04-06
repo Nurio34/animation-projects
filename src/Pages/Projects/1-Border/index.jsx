@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useGlobalContext } from "../../../GlobalApp";
 import "./index.scss";
 
@@ -15,8 +15,6 @@ function index() {
     useEffect(() => {
         setHeaderLogo();
     });
-
-    //! ------------------
 
     return (
         <div className="Border1 h-full">

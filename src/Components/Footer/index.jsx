@@ -25,6 +25,8 @@ function index() {
         >
             <Link to={"/"}>Home</Link>
             <Link to={"/border1"}>Border1</Link>
+            <Link to={"/diamondgrid"}>DiamondGrid</Link>
+            <Link to={"/mixblendmode"}>MixBlendMode</Link>
         </footer>
     );
 }

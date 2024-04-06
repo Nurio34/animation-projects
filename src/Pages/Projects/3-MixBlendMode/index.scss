@@ -1,0 +1,24 @@
+.MixBlendMode {
+    // color: white;
+    background-color: red;
+    background-image: url("../../../assets//wallpaper.webp");
+    // background-size: 100px;
+
+    p {
+        mix-blend-mode: exclusion;
+        mix-blend-mode: overlay;
+        mix-blend-mode: saturation;
+        mix-blend-mode: screen;
+        mix-blend-mode: soft-light;
+        mix-blend-mode: darken;
+        mix-blend-mode: difference;
+        mix-blend-mode: color-dodge;
+        mix-blend-mode: hard-light;
+        mix-blend-mode: hue;
+        mix-blend-mode: lighten;
+        mix-blend-mode: luminosity;
+        mix-blend-mode: color;
+        mix-blend-mode: color-burn;
+        mix-blend-mode: multiply;
+    }
+}
