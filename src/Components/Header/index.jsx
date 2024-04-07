@@ -3,6 +3,8 @@ import { useGlobalContext } from "../../GlobalApp";
 import { FaYoutube } from "react-icons/fa";
 import Button from "../Button";
 import "./index.scss";
+import { typeAnimation } from "../../functions/typeAnimation";
+import "../../functions/index.css";
 
 function index() {
     const { Header, setHeaderHeight, logo, logoUrl } = useGlobalContext();
